@@ -1,0 +1,158 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #000;
+  color: #fff;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#gesture-overlay {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 48px;
+  font-weight: bold;
+  color: #00FF00;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 10px 20px;
+  border-radius: 8px;
+  z-index: 1000;
+  display: none; /* Hidden by default */
+  text-transform: uppercase;
+  border: 2px solid #00FF00;
+}
+
+#root {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr auto;
+  width: 100vw;
+  height: 100vh;
+  gap: 0;
+}
+
+#left-pane {
+  background: #000;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+#left-pane video {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scaleX(-1); /* Mirror only the video feed horizontally */
+}
+
+#left-pane canvas {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#left-label {
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  text-align: center;
+  padding: 8px;
+  font-size: 14px;
+  font-weight: normal;
+  position: relative;
+  z-index: 10;
+}
+
+#right-pane {
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#right-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 6px;
+}
+
+#right-label {
+  color: #fff;
+  text-align: center;
+  padding: 8px 0;
+  font-size: 14px;
+  font-weight: normal;
+  background: #000;
+}
+
+#speech-text {
+  flex: 1;
+  background: #000;
+  color: #fff;
+  padding: 10px;
+  font-size: 12px;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  overflow-y: auto;
+  border: none;
+}
+
+#controls-bar {
+  grid-column: 1 / -1;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px;
+  border-top: 1px solid #333;
+}
+
+button {
+  background: #666;
+  border: 1px solid #999;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 0;
+  cursor: pointer;
+  font-size: 12px;
+  min-width: 100px;
+}
+
+button:hover {
+  background: #777;
+}
+
+button:active {
+  background: #555;
+}
+
+/* Fullscreen support */
+body.fullscreen #root {
+  width: 100vw;
+  height: 100vh;
+}
+
+@media (max-width: 800px) {
+  #root {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+  }
+  
+  #left-pane {
+    order: -1;
+  }
+}

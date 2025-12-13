@@ -1,0 +1,14 @@
+{
+  "hello": ["hello.mp4"],
+  "how are you": ["how_are_you.mp4"],
+  "thank you": ["thank_you.mp4"],
+  "shop": ["shop.mp4"],
+  "buy": ["shop.mp4"],
+  "i love you": ["i_love_you.mp4"],
+  "one": ["number_1.mp4"],
+  "two": ["number_2.mp4"],
+  "three": ["number_3.mp4"],
+  "where": ["where.mp4"],
+  "help": ["help.mp4"],
+  "stop": ["stop.mp4"]
+}
