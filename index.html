@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Speech & Sign Language Tool</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="root">
+    <!-- Big translation text overlay -->
+    <div id="gesture-overlay">HELLO</div>
+    
+    <!-- Left side: Camera/Sign Language Detector -->
+    <div id="left-pane">
+      <video id="video" autoplay playsinline style="width:100%; height:100%; object-fit:cover; display:none;"></video>
+      <canvas id="overlay" style="width:100%; height:100%;"></canvas>
+      <div id="left-label">Sign Language Detector</div>
+    </div>
+    
+    <!-- Right side: Speech to Sign -->
+    <div id="right-pane">
+      <div id="right-content">
+        <div id="right-label">Speech to Sign (SPACE to start/stop)</div>
+        <div id="speech-text">Click "Start Listening" to begin speech recognition</div>
+      </div>
+    </div>
+    
+    <!-- Bottom controls bar -->
+    <div id="controls-bar">
+      <button id="camera-btn">Stop Camera</button>
+      <button id="speech-btn">Start Listening</button>
+      <button id="fullscreen-btn">Enter Fullscreen</button>
+    </div>
+  </div>
+
+  <!-- MediaPipe libs -->
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+
+  <script src="app.js"></script>
+</body>
+</html>
